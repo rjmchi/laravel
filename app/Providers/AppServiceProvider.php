@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        URL::forceHttps();
+        if ($this->app->environment('production')){
+            URL::forceHttps();
+        }
     }
 }
